@@ -1,7 +1,9 @@
+import CourseManager from "./components/course-manager";
+
 function App() {
   return (
     <div className="container-fluid">
-      <h1>Course Manager</h1>
+      <CourseManager/>
 
     </div>
   );
