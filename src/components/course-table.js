@@ -13,25 +13,24 @@ export default class CourseTable extends React.Component {
   render() {
     return (
         <div>
-          <h2>Course Table</h2>
-
           <table className="table">
             <tbody>
-            <tr>
-              <td>Title</td>
-              <td>Owned by</td>
-              <td>Last modified</td>
-              <td className="table-btn">
-                <a href="#"> <i
-                    className="fas fa-folder"></i></a>
-                <a href="#"> <i
-                    className="fas fa-sort-alpha-down"></i></a>
-                <Link to="/courses/grid">
-                  <i className="fas fa-th"></i>
-                </Link>
+              <tr>
+                <th>Title</th>
+                <th className="d-none d-sm-table-cell">Owned by</th>
+                <th className="d-none d-md-table-cell">Last modified</th>
+                <th className="table-btn float-right">
+                  <a href="#"> <i
+                      className="fas fa-folder"></i></a>
+                  <a href="#"> <i
+                      className="fas fa-sort-alpha-down"></i></a>
+                  <Link to="/courses/grid">
+                    <i className="fas fa-th"></i>
+                  </Link>
 
-              </td>
-            </tr>
+                </th>
+              </tr>
+
             {
               this.props.courses.map((course, ndx) =>
                         <CourseRow

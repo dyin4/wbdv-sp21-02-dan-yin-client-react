@@ -5,14 +5,7 @@ import {Link} from "react-router-dom";
 import "../index.css"
 import CourseRow from "./course-row";
 
-export default class CourseGrid extends React.Component{
-
-    constructor(props) {
-      super(props);
-  }
-
-  render(){
-      return(
+const CourseGrid = (props) =>
 
           <div className="container">
             <div className="row row-cols-1 row-cols-md-3 row-cols-lg-3 row-gird-nav">
@@ -32,28 +25,21 @@ export default class CourseGrid extends React.Component{
                   <Link to="/courses/table">
                     <i className="fas fa-list"></i>
                   </Link>
-
                 </div>
-
-
-
               </div>
 
             </div>
 
             <div className="row row-cols-xs-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-card">
-              {this.props.courses.map((course, index )=>
+              {props.courses.map((course, index )=>
                   <CourseCard course={course}
                               key={index}
-                              deleteCourse={this.props.deleteCourse}
-                              updateCourse={this.props.updateCourse}/>
+                              deleteCourse={props.deleteCourse}
+                              updateCourse={props.updateCourse}/>
               )}
             </div>
 
 
           </div>
-      )
-  }
 
-
-  }
+export default CourseGrid
