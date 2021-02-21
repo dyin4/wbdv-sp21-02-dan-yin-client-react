@@ -41,8 +41,8 @@ const CourseRow = (
             ></input>
           }
         </td>
-        <td className="d-none d-sm-table-cell">{owner}</td>
-        <td className="d-none d-md-table-cell">{lastModified}</td>
+        <td className="d-none d-md-table-cell">{owner}</td>
+        <td className="d-none d-lg-table-cell">{lastModified}</td>
         <td>
           {editing && <i className="fas fa-check" onClick={saveTitle}></i>}
           {editing && <i className="fas fa-times"

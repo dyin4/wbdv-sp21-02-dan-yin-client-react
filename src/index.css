@@ -30,15 +30,6 @@ code {
   margin-top:12px;
 }
 
-.wbdv-sticky-nav-bar {
-  background-color: white;
-  padding: 10px;
-  position: fixed;
-  width: 100%;
-  z-index: 1;
-  height: 55px;
-}
-
 .container {
   padding-top: 55px;
 }

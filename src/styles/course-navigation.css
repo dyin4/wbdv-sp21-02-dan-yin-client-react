@@ -1,0 +1,24 @@
+.wbdv-sticky-nav-bar {
+  background-color: white;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  height: 55px;
+}
+
+#topnav {
+  padding-right: 20px;
+}
+
+.course-manager {
+  text-align: center;
+  font-weight: bold;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: medium;
+}
+
+.fa-plus-circle {
+  color: red;
+}

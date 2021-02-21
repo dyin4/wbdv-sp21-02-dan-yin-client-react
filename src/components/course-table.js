@@ -17,8 +17,8 @@ export default class CourseTable extends React.Component {
             <tbody>
               <tr>
                 <th>Title</th>
-                <th className="d-none d-sm-table-cell">Owned by</th>
-                <th className="d-none d-md-table-cell">Last modified</th>
+                <th className="d-none d-md-table-cell">Owned by</th>
+                <th className="d-none d-lg-table-cell">Last modified</th>
                 <th className="table-btn float-right">
                   <a href="#"> <i
                       className="fas fa-folder"></i></a>
