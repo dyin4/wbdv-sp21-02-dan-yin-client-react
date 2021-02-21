@@ -28,7 +28,7 @@ const CourseCard = ({course, deleteCourse, updateCourse}) => {
 
   }
   return (
-      <div className="col-sm-4">
+      <div className="col">
         <div className="card">
           <div className="card-body">
             <img src={newUri} className="card-img-top"

@@ -23,6 +23,7 @@ code {
   border-radius:20px;
   text-align:center;
   box-shadow: 2px 2px 2px #999;
+  z-index:1;
 }
 
 .my-float{
@@ -30,7 +31,7 @@ code {
 }
 
 .wbdv-sticky-nav-bar {
-  background-color: #4c8bf5;
+  background-color: white;
   padding: 10px;
   position: fixed;
   width: 100%;
@@ -64,5 +65,18 @@ code {
 .card-img-top {
   width: 100%;
   height: 15vw;
-  object-fit: cover;
+  object-fit: scale-down;
+}
+
+.card{
+  margin: 10px;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+div.row.row-cols-1.row-cols-md-3.row-cols-lg-3.row-gird-nav.row-gird-nav {
+  margin-left: 5px;
+  margin-right: 5px;
 }
