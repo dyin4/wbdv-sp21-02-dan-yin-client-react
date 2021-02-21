@@ -1,5 +1,5 @@
 import CourseManager from "./components/course-manager";
-import BrowserRouter from "react-router-dom/modules/BrowserRouter";
+import {BrowserRouter} from "react-router-dom";
 
 function App() {
   return (
