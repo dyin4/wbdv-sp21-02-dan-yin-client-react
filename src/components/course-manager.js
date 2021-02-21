@@ -23,8 +23,9 @@ class CourseManager extends React.Component {
   addCourse = () => {
     const newCourse = {
       title: "New Course",
-      owner: "New Owner",
-      lastModified: "Never"
+      owner: "me",
+      lastModified: "1/1/2021",
+      img : "https://i.pinimg.com/originals/c1/78/5d/c1785d50a929254419fa4aad0560b058.png"
     }
 
     courseService.createCourse(newCourse)
@@ -105,8 +106,9 @@ class CourseManager extends React.Component {
           </Route>
 
           <Route path={"/courses/grid"}>
-            <CourseGrid deleteCourse={this.deleteCourse}
-                        courses={this.state.courses}/>
+            <CourseGrid  updateCourse={this.updateCourse}
+                         deleteCourse={this.deleteCourse}
+                          courses={this.state.courses}/>
           </Route>
 
           <Route path="/courses/editor" render={(props) =>
