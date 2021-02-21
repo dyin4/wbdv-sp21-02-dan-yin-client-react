@@ -3,6 +3,7 @@
 
 
  const CourseCard = ({course}) =>
+     <div className="col-sm-4">
      <div className="card">
        <div className="card-body">
          <h5 className="card-title">{course.title}</h5>
@@ -12,6 +13,7 @@
          <Link to="/courses/editor" className="btn btn-primary">{course.title}</Link>
          <i className="fa fa-trash float-right"></i>
        </div>
+     </div>
      </div>
 
  export default CourseCard

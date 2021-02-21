@@ -4,6 +4,8 @@ import CourseGrid from "./course-grid";
 import CourseEditor from "./course-editor";
 import {Route} from "react-router-dom";
 import courseService, {findAllCourse, deleteCourse, createCourse} from "../services/course-service";
+import Navigation from "./course-navigation";
+import "../index.css"
 
 class CourseManager extends React.Component {
 
@@ -89,8 +91,12 @@ class CourseManager extends React.Component {
   render() {
     return (
         <>
-          <h1>Course Manager</h1>
-          <button onClick={this.addCourse}>Add Course</button>
+          <Navigation/>
+          <a href="#" className="float" onClick={this.addCourse}>
+            <i className="fa fa-plus my-float"></i>
+          </a>
+
+          <div className="container">
           <Route path="/courses/table">
             <CourseTable
                 updateCourse={this.updateCourse}
@@ -107,6 +113,7 @@ class CourseManager extends React.Component {
               <CourseEditor {...props}/>
           }>
           </Route>
+          </div>
 
         </>
 

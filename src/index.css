@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.float{
+  position:fixed;
+  width:40px;
+  height:40px;
+  bottom:30px;
+  right:30px;
+  background-color:#e53935;
+  color:#FFF;
+  border-radius:20px;
+  text-align:center;
+  box-shadow: 2px 2px 2px #999;
+}
+
+.my-float{
+  margin-top:12px;
+}
+
+.wbdv-sticky-nav-bar {
+  background-color: #4c8bf5;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  height: 55px;
+}
+
+.container {
+  padding-top: 55px;
+}
+
+.table-btn i{
+  padding-left:5px;
+
+}

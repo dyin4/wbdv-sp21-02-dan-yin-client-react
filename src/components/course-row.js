@@ -27,9 +27,10 @@ const CourseRow = (
       <tr>
         <td>
           {
-            !editing && (<Link to="/courses/editor">
-              {title}
-            </Link>)
+            !editing && (
+                <Link to="/courses/editor">
+                  <i className="fa fa-file"></i>
+                  {title}</Link>)
           }
           {
             editing && <input className="form-control"
