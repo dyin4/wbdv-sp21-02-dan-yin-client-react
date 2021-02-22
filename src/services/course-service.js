@@ -5,6 +5,10 @@ const COURSE_URL = "https://wbdv-generic-server.herokuapp.com/api/001024338/cour
 export const findAllCourse = () =>
     fetch(COURSE_URL).then(response => response.json())
 
+export const findCourseById = (courseId) =>
+    fetch(`${COURSE_URL}/${courseId}`)
+    .then(response => response.json())
+
 export const createCourse = (course) =>
     fetch(COURSE_URL, {
       method: 'POST',
@@ -36,6 +40,7 @@ const api = {
   createCourse,
   deleteCourse,
   updateCourse,
+  findCourseById,
 }
 
 export default api;

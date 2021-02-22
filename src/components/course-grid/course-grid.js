@@ -1,9 +1,8 @@
 import React from 'react'
-import CourseManager from "./course-manager";
+import CourseManager from "../course-manager";
 import CourseCard from "./course-card";
 import {Link} from "react-router-dom";
-import "../index.css"
-import CourseRow from "./course-row";
+import "../../index.css"
 
 const CourseGrid = (props) =>
 
@@ -30,7 +29,7 @@ const CourseGrid = (props) =>
 
             </div>
 
-            <div className="row row-cols-xs-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-card">
+            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-card">
               {props.courses.map((course, index )=>
                   <CourseCard course={course}
                               key={index}

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {Link} from "react-router-dom";
-import "../index.css"
+import "../../index.css"
 
 const CourseRow = (
     {
@@ -44,14 +44,14 @@ const CourseRow = (
         <td className="d-none d-md-table-cell">{owner}</td>
         <td className="d-none d-lg-table-cell">{lastModified}</td>
         <td>
-          {editing && <i className="fas fa-check" onClick={saveTitle}></i>}
-          {editing && <i className="fas fa-times"
+          {editing && <i className="fas fa-times float-right fa-2x"
               onClick={() => {
                 setEditing(false)
                 deleteCourse(course)
               }
               }></i>}
-          {!editing && <i className="fas fa-edit float-right" onClick={() => setEditing(true)}></i>}
+          {editing && <i className="fas fa-check float-right fa-2x" onClick={saveTitle}></i>}
+          {!editing && <i className="fas fa-edit float-right fa-2x" onClick={() => setEditing(true)}></i>}
         </td>
       </tr>)
 }

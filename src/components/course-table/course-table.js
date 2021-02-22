@@ -1,7 +1,7 @@
 import React from 'react'
 import CourseRow from "./course-row";
 import {Link} from "react-router-dom";
-import "../index.css"
+import "../../index.css"
 
 export default class CourseTable extends React.Component {
 
@@ -35,8 +35,8 @@ export default class CourseTable extends React.Component {
               this.props.courses.map((course, ndx) =>
                         <CourseRow
                             key={ndx}
-                            title={course.title}
                             owner={course.owner}
+                            title={course.title}
                             course={course}
                             lastModified={course.lastModified}
                             deleteCourse={this.props.deleteCourse}

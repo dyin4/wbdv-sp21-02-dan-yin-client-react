@@ -1,32 +1,24 @@
 import React, {useState} from 'react'
 import {Link} from "react-router-dom";
-import "../index.css"
+import "../../index.css"
 
 const CourseCard = ({course, deleteCourse, updateCourse}) => {
 
   const [editing, setEditing] = useState(false)
   const [newTitle, setNewTitle] = useState(course.title)
   const [newUri, setNewUrl] = useState(course.img)
-  const saveTitle = () => {
+
+  const saveUpdate = () => {
     setEditing(false)
     const NewCourse = {
       ...course,
-      title: newTitle
-    }
-
-    updateCourse(NewCourse)
-
-  }
-
-  const saveUri = () => {
-    setEditing(false)
-    const NewCourse = {
-      ...course,
+      title: newTitle,
       img: newUri
     }
     updateCourse(NewCourse)
 
   }
+
   return (
       <div className="col">
         <div className="card">
@@ -63,8 +55,7 @@ const CourseCard = ({course, deleteCourse, updateCourse}) => {
             <div className="btn-top-card">
               {editing && <i className="fas fa-check fa-2x"
                               onClick={ () =>
-                              {saveTitle()
-                                saveUri()}
+                              saveUpdate()
                               }></i>}
               {editing && <i className="fas fa-times fa-2x"
                               onClick={() => {

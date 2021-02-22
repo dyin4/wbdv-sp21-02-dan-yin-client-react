@@ -1,7 +1,7 @@
 import React from 'react'
-import CourseTable from "./course-table";
-import CourseGrid from "./course-grid";
-import CourseEditor from "./course-editor";
+import CourseTable from "./course-table/course-table";
+import CourseGrid from "./course-grid/course-grid";
+import CourseEditor from "./course-editor/course-editor";
 import {Route} from "react-router-dom";
 import courseService, {findAllCourse, deleteCourse, createCourse} from "../services/course-service";
 import Navigation from "./course-navigation";
@@ -16,13 +16,17 @@ class CourseManager extends React.Component {
 
   componentDidMount = () => {
     // findAllCourse().then(actualCourses => this.setState({courses: actualCourses}))
-    findAllCourse().then(courses => this.setState({courses}))
+    findAllCourse().then(courses => this.setState({courses: courses}))
 
   }
 
-  addCourse = () => {
+  findAllCourse = () =>{
+    courseService.findAllCourse().then(courses => this.setState({courses: courses}))
+  }
+
+  addCourse = (title) => {
     const newCourse = {
-      title: "New Course",
+      title: title,
       owner: "me",
       lastModified: "1/1/2021",
       img : "https://i.pinimg.com/originals/c1/78/5d/c1785d50a929254419fa4aad0560b058.png"
@@ -39,6 +43,18 @@ class CourseManager extends React.Component {
 
     // this.state.courses.push(newCourse)
     // this.setState(this.state)
+  }
+
+  findCourseById = (id) => {
+    courseService.findCourseById(id).then(status => {
+          console.log('HIHIHI',status)
+          if(status.title !== null) {
+            this.setState(
+                {courses: [status]}
+            )
+          }
+        }
+    )
   }
 
   updateCourse = (course) => {
@@ -92,8 +108,8 @@ class CourseManager extends React.Component {
   render() {
     return (
         <>
-          <Navigation/>
-          <a href="#" className="float" onClick={this.addCourse}>
+          <Navigation find={this.findCourseById} showAll={this.findAllCourse} addCourse = {this.addCourse}/>
+          <a href="#" className="float" onClick={this.addCourse("New Course")}>
             <i className="fa fa-plus my-float"></i>
           </a>
 
