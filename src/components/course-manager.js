@@ -27,7 +27,7 @@ class CourseManager extends React.Component {
 
   addCourse = (title) => {
     const newCourse = {
-      title: title,
+      title: title.length === 0 ? "New Course" : title,
       owner: "me",
       lastModified: "1/1/2021",
       img : "https://i.pinimg.com/originals/c1/78/5d/c1785d50a929254419fa4aad0560b058.png"
@@ -110,7 +110,7 @@ class CourseManager extends React.Component {
     return (
         <>
           <Navigation find={this.findCourseById} showAll={this.findAllCourse} addCourse={this.addCourse}/>
-          <a href="#" className="float" onClick={() => this.addCourse("New Course")}>
+          <a href="#" className="float" onClick={() => this.addCourse("")}>
             <i className="fa fa-plus my-float"></i>
           </a>
 

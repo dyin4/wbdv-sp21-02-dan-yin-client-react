@@ -32,7 +32,7 @@ const CourseGrid = (props) =>
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-card">
               {props.courses.map((course, index )=>
                   <CourseCard course={course}
-                              key={index}
+                              key={course._id}
                               deleteCourse={props.deleteCourse}
                               updateCourse={props.updateCourse}/>
               )}

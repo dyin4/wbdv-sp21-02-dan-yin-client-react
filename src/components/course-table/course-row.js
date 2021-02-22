@@ -36,7 +36,11 @@ const CourseRow = (
           {
             editing && <input className="form-control"
                               value={newTitle}
-                              onChange={e => setNewTitle(e.target.value)}
+                              onChange={e => {
+                                console.log('owwo')
+                                setNewTitle(e.target.value)
+                              }
+                              }
 
             ></input>
           }
@@ -51,7 +55,13 @@ const CourseRow = (
               }
               }></i>}
           {editing && <i className="fas fa-check float-right fa-2x" onClick={saveTitle}></i>}
-          {!editing && <i className="fas fa-edit float-right fa-2x" onClick={() => setEditing(true)}></i>}
+          {!editing && <i className="fas fa-edit float-right fa-2x" onClick={() => {
+            //
+            // console.log('HERE',title)
+            // console.log('HERE',newTitle)
+            // setNewTitle(title)
+            setEditing(true)
+          }}></i>}
         </td>
       </tr>)
 }
