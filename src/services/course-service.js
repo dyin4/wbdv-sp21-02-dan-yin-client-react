@@ -1,6 +1,6 @@
 import  "../index.css"
 
-const COURSE_URL = "https://wbdv-generic-server.herokuapp.com/api/001024338/courses"
+const COURSE_URL = "https://wbdv-generic-server.herokuapp.com/api/danyin/courses"
 
 export const findAllCourse = () =>
     fetch(COURSE_URL).then(response => response.json())

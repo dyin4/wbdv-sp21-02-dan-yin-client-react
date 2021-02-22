@@ -2,9 +2,14 @@ import "../index.css"
 import "../styles/course-navigation.css"
 import {useState} from "react";
 
-const Navigation = ({find, showAll}) => {
+const Navigation = ({find, showAll, addCourse}) => {
   const [newId, setId] = useState("")
   const [newTitle, setTitle] = useState("")
+
+  const saveTitle = () => {
+    addCourse(newTitle)
+    setTitle("")
+  }
 
   return (
       <div className="wbdv-sticky-nav-bar">
@@ -46,7 +51,7 @@ const Navigation = ({find, showAll}) => {
                    }}/>
           </div>
           <div className="col-2 col-lg-1">
-            <a href="#">
+            <a href="#" onClick={() => saveTitle()}>
               <i className="fas fa-plus-circle fa-2x float-right"></i>
             </a>
           </div>
@@ -56,5 +61,4 @@ const Navigation = ({find, showAll}) => {
 
   )
 }
-
 export default Navigation

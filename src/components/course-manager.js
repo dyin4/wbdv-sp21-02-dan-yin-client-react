@@ -1,4 +1,5 @@
 import React from 'react'
+import {useCallback} from 'react'
 import CourseTable from "./course-table/course-table";
 import CourseGrid from "./course-grid/course-grid";
 import CourseEditor from "./course-editor/course-editor";
@@ -31,7 +32,7 @@ class CourseManager extends React.Component {
       lastModified: "1/1/2021",
       img : "https://i.pinimg.com/originals/c1/78/5d/c1785d50a929254419fa4aad0560b058.png"
     }
-
+    console.log('hih')
     courseService.createCourse(newCourse)
       .then(course => this.setState((prevState) =>
       ({...prevState,
@@ -108,8 +109,8 @@ class CourseManager extends React.Component {
   render() {
     return (
         <>
-          <Navigation find={this.findCourseById} showAll={this.findAllCourse} addCourse = {this.addCourse}/>
-          <a href="#" className="float" onClick={this.addCourse("New Course")}>
+          <Navigation find={this.findCourseById} showAll={this.findAllCourse} addCourse={this.addCourse}/>
+          <a href="#" className="float" onClick={() => this.addCourse("New Course")}>
             <i className="fa fa-plus my-float"></i>
           </a>
 
