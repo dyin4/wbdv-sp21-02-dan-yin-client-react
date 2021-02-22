@@ -10,7 +10,8 @@ const CourseEditor = ({history}) =>
           <ul className="nav justify-content-center">
             <li className="nav-item">
               <Link to="/courses/table" className="nav-link">
-                <i className="fas fa-arrow-left fa-lg" onClick={() => history.goBack()}></i>
+                <i className="fas fa-arrow-left fa-lg"
+                   onClick={() => history.goBack()}></i>
               </Link>
             </li>
             <span className="navbar-text">

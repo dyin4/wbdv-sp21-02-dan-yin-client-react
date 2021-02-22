@@ -5,7 +5,6 @@ import "../../index.css"
 
 export default class CourseTable extends React.Component {
 
-
   constructor(props) {
     super(props);
   }
@@ -15,33 +14,33 @@ export default class CourseTable extends React.Component {
         <div>
           <table className="table">
             <tbody>
-              <tr>
-                <th>Title</th>
-                <th className="d-none d-md-table-cell">Owned by</th>
-                <th className="d-none d-lg-table-cell">Last modified</th>
-                <th className="table-btn float-right">
-                  <a href="#"> <i
-                      className="fas fa-folder"></i></a>
-                  <a href="#"> <i
-                      className="fas fa-sort-alpha-down"></i></a>
-                  <Link to="/courses/grid">
-                    <i className="fas fa-th"></i>
-                  </Link>
+            <tr>
+              <th>Title</th>
+              <th className="d-none d-md-table-cell">Owned by</th>
+              <th className="d-none d-lg-table-cell">Last modified</th>
+              <th className="table-btn float-right">
+                <a href="#"> <i
+                    className="fas fa-folder"></i></a>
+                <a href="#"> <i
+                    className="fas fa-sort-alpha-down"></i></a>
+                <Link to="/courses/grid">
+                  <i className="fas fa-th"></i>
+                </Link>
 
-                </th>
-              </tr>
+              </th>
+            </tr>
 
             {
               this.props.courses.map((course, ndx) =>
-                        <CourseRow
-                            key={course._id}
-                            owner={course.owner}
-                            title={course.title}
-                            course={course}
-                            lastModified={course.lastModified}
-                            deleteCourse={this.props.deleteCourse}
-                            updateCourse={this.props.updateCourse}
-                        />
+                  <CourseRow
+                      key={course._id}
+                      owner={course.owner}
+                      title={course.title}
+                      course={course}
+                      lastModified={course.lastModified}
+                      deleteCourse={this.props.deleteCourse}
+                      updateCourse={this.props.updateCourse}
+                  />
               )
             }
 

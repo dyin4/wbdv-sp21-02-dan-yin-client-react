@@ -14,11 +14,11 @@ const CourseRow = (
 
   const [editing, setEditing] = useState(false)
   const [newTitle, setNewTitle] = useState(title)
-  const saveTitle = () =>{
+  const saveTitle = () => {
     setEditing(false)
     const NewCourse = {
       ...course,
-      title:newTitle
+      title: newTitle
     }
 
     updateCourse(NewCourse)
@@ -49,19 +49,21 @@ const CourseRow = (
         <td className="d-none d-lg-table-cell">{lastModified}</td>
         <td>
           {editing && <i className="fas fa-times float-right fa-2x"
-              onClick={() => {
-                setEditing(false)
-                deleteCourse(course)
-              }
-              }></i>}
-          {editing && <i className="fas fa-check float-right fa-2x" onClick={saveTitle}></i>}
-          {!editing && <i className="fas fa-edit float-right fa-2x" onClick={() => {
-            //
-            // console.log('HERE',title)
-            // console.log('HERE',newTitle)
-            // setNewTitle(title)
-            setEditing(true)
-          }}></i>}
+                         onClick={() => {
+                           setEditing(false)
+                           deleteCourse(course)
+                         }
+                         }></i>}
+          {editing && <i className="fas fa-check float-right fa-2x"
+                         onClick={saveTitle}></i>}
+          {!editing && <i className="fas fa-edit float-right fa-2x"
+                          onClick={() => {
+                            //
+                            // console.log('HERE',title)
+                            // console.log('HERE',newTitle)
+                            // setNewTitle(title)
+                            setEditing(true)
+                          }}></i>}
         </td>
       </tr>)
 }
