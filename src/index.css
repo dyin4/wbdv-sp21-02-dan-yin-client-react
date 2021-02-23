@@ -60,7 +60,7 @@ code {
   width: 10rem;
   height: 15rem;
   align-content: center;
-  object-fit: scale-down;
+  object-fit: cover;
 }
 
 .card{
