@@ -23,7 +23,7 @@ const CourseCard = ({course, deleteCourse, updateCourse}) => {
       <div className="col">
         <div className="card">
           <div className="card-body">
-            <img src={newUri} className="card-img-top"
+            <img src={newUri} className="card-img-top mx-auto d-block"
             />
             {
               !editing && <h5 className="card-title">{course.title}</h5>

@@ -59,6 +59,7 @@ code {
 .card-img-top {
   width: 10rem;
   height: 15rem;
+  align-content: center;
   object-fit: scale-down;
 }
 
