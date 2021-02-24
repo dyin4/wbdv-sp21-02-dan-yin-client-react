@@ -4,7 +4,7 @@ import "../../styles/course-editor.css";
 
 const CourseEditor = ({history}) =>
 
-    <div className="container">
+    <div className="container dy-editor-container">
       <nav className="navbar">
         <div className="container-fluid">
           <ul className="nav justify-content-center">
