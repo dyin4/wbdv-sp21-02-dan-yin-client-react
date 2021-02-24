@@ -9,10 +9,8 @@ const CourseEditor = ({history}) =>
         <div className="container-fluid">
           <ul className="nav justify-content-center">
             <li className="nav-item">
-              <Link to="/courses/table" className="nav-link">
                 <i className="fas fa-arrow-left fa-lg"
                    onClick={() => history.goBack()}></i>
-              </Link>
             </li>
             <span className="navbar-text">
          CS5610 - WebDev
