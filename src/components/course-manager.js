@@ -18,6 +18,7 @@ class CourseManager extends React.Component {
     courses: []
   }
 
+
   componentDidMount = () => {
     // findAllCourse().then(actualCourses => this.setState({courses: actualCourses}))
     findAllCourse().then(courses => this.setState({courses: courses}))
@@ -115,25 +116,41 @@ class CourseManager extends React.Component {
   render() {
     return (
         <>
-          <Navigation find={this.findCourseById} showAll={this.findAllCourse}
-                      addCourse={this.addCourse}/>
-          <a href="#" className="float" onClick={() => this.addCourse("")}>
-            <i className="fa fa-plus my-float"></i>
-          </a>
+
+          {/*<Navigation find={this.findCourseById} showAll={this.findAllCourse}*/}
+          {/*             addCourse={this.addCourse}/>*/}
+          {/*  <a href="#" className="float" onClick={() => this.addCourse("")}>*/}
+          {/*  <i className="fa fa-plus my-float"></i>*/}
+          {/*  </a>*/}
 
           <div className="container">
-            <Route path="/courses/table">
+            <Route path="/courses/table" exact={true}>
               <CourseTable
                   updateCourse={this.updateCourse}
                   deleteCourse={this.deleteCourse}
-                  courses={this.state.courses}/>
+                  courses={this.state.courses}
+                  find={this.findCourseById}
+                  showAll={this.findAllCourse}
+                  addCourse={this.addCourse}
+                  />
             </Route>
 
-            <Route path={"/courses/grid"}>
+            <Route path={"/courses/grid"} exact={true}>
               <CourseGrid updateCourse={this.updateCourse}
                           deleteCourse={this.deleteCourse}
-                          courses={this.state.courses}/>
+                          courses={this.state.courses}
+                          find={this.findCourseById}
+                          showAll={this.findAllCourse}
+                          addCourse={this.addCourse}/>
             </Route>
+
+            <Route path={[
+              "/courses/:layout/edit/:courseId",
+              "/courses/:layout/edit/:courseId/:moduleId",
+              "/courses/:layout/edit/:courseId/:moduleId/:lessonId"
+            ]}
+                   exact={true}
+                   render={(props) => <CourseEditor {...props}/>}/>
           </div>
 
         </>

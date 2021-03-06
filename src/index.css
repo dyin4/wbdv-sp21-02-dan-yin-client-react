@@ -7,9 +7,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.dy-container {
+  margin-top: 55px;
 }
 
 .float{
@@ -28,10 +33,6 @@ code {
 
 .my-float{
   margin-top:12px;
-}
-
-.container {
-  padding-top: 55px;
 }
 
 .table-btn{
@@ -76,6 +77,47 @@ div.row.row-cols-1.row-cols-md-3.row-cols-lg-3.row-gird-nav.row-gird-nav {
   margin-right: 5px;
 }
 
-.table {
+table.table {
   border-top:hidden !important;
+  margin-top: 55px;
+}
+
+.list-group-item.active a {
+  color: white;
+}
+.nav-link.active a {
+  color: black;
+}
+
+.fa-arrow-left {
+  padding-top: 10px;
+  padding-right: 0 ;
+}
+
+
+.row.h1 {
+  padding-left: 0px;
+}
+
+.my-fa-edit{
+  /*position: absolute;*/
+  /*width: 30px;*/
+  /*height: 30px;*/
+  /*right: 5px;*/
+  /*bottom: 20px;*/
+  padding-top: 5px;
+  padding-right: 0px;
+  padding-left: 20px;
+}
+
+.my-fa-btns {
+  padding-top: 5px;
+}
+
+.my-fa-check {
+  padding-left: 3px;
+}
+
+.dy-fa-plus {
+  padding-left: 2px;
 }

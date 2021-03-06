@@ -2,6 +2,7 @@ import React from 'react'
 import CourseRow from "./course-row";
 import {Link} from "react-router-dom";
 import "../../index.css"
+import Navigation from "../course-navigation";
 
 export default class CourseTable extends React.Component {
 
@@ -11,7 +12,15 @@ export default class CourseTable extends React.Component {
 
   render() {
     return (
-        <div>
+        <>
+          <div className="fixed-top">
+          <Navigation find={this.props.find} showAll={this.props.showAll}
+                      addCourse={this.props.addCourse}/>
+          </div>
+          <a href="#" className="float" onClick={() => this.props.addCourse("")}>
+            <i className="fa fa-plus my-float"></i>
+          </a>
+          <div className="container dy-table">
           <table className="table">
             <tbody>
             <tr>
@@ -40,6 +49,7 @@ export default class CourseTable extends React.Component {
                       lastModified={course.lastModified}
                       deleteCourse={this.props.deleteCourse}
                       updateCourse={this.props.updateCourse}
+                      showNav = {this.props.showNav}
                   />
               )
             }
@@ -47,6 +57,7 @@ export default class CourseTable extends React.Component {
             </tbody>
           </table>
         </div>
+        </>
     )
   }
 

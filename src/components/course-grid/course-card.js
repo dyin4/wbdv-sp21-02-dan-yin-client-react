@@ -48,7 +48,7 @@ const CourseCard = ({course, deleteCourse, updateCourse}) => {
               </>
             }
             <p className="card-text">Some Description</p>
-            <Link to="/editor"
+            <Link to="/courses/grid/edit"
                   className="btn btn-primary">{course.title}</Link>
             {!editing && <i className="fa fa-edit float-right fa-2x" onClick={() => setEditing(true)}></i>}
 

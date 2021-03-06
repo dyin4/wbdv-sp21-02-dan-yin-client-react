@@ -1,114 +1,49 @@
 import React from 'react'
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import "../../styles/course-editor.css";
+import moduleReducer from "../../reducer/modules-reducer"
+import {combineReducers, createStore} from "redux";
+import {Provider} from "react-redux";
+import ModuleList from "./module-list";
+import LessonTabs from "./lesson-tabs";
+import lessonReducer from "../../reducer/lesson-reducer";
+import "../../index.css"
 
-const CourseEditor = ({history}) =>
+const reducer = combineReducers({
+  moduleReducer: moduleReducer,
+  lessonReducer: lessonReducer
+})
 
-    <div className="container dy-editor-container">
-      <nav className="navbar">
-        <div className="container-fluid">
-          <ul className="nav justify-content-center">
-            <li className="nav-item">
-                <i className="fas fa-arrow-left fa-lg"
-                   onClick={() => history.goBack()}></i>
-            </li>
-            <span className="navbar-text">
-         CS5610 - WebDev
-        </span>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Build</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page"
-                 href="#">Page</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Theme</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Store</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Apps</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Settings</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                <i className="fas fa-plus fa-lg" id="plus"></i>
-              </a>
-            </li>
-          </ul>
+// const store = createStore(moduleReducer)
+const store = createStore(reducer)
+
+const CourseEditor = ({history}) => {
+  console.log("history", history)
+
+  const {layout, courseId, moduleId} = useParams();
+  return (
+      <Provider store={store}>
+        <div className="row right-block">
+          <Link to={`/courses/${layout}`}
+                className="fa fa-arrow-left fa-2x col-sm-1"></Link>
+          <h1 className="col-sm-10">WebDev Selected Course</h1>
+
         </div>
-      </nav>
-      <div className="container-fluid">
-        <div className="row justify-content-center min-vh-100">
-          <div className="col-4">
-            <ul className="list-group">
-              <li className="list-group-item">
-                Module 1 -jQuery
-                <i className="fas fa-trash float-right"></i>
-              </li>
-              <li className="list-group-item active" aria-current="true">
-                Module 2 - React
-                <i className="fas fa-trash float-right"></i>
-              </li>
-              <li className="list-group-item">
-                Module 3 - Redux
-                <i className="fas fa-trash float-right"></i>
-              </li>
-              <li className="list-group-item">
-                Module 4 - Native
-                <i className="fas fa-trash float-right"></i>
-              </li>
-              <li className="list-group-item">
-                Module 5 - Angular
-                <i className="fas fa-trash float-right"></i>
-              </li>
-              <li className="list-group-item">
-                Module 6 - Node
-                <i className="fas fa-trash float-right"></i>
-              </li>
-              <li className="list-group-item">
-                Module 7 - Mongo
-                <i className="fas fa-trash float-right"></i>
-              </li>
-            </ul>
-            <a className="nav-link" href="#" id="plus">
-              <i className="fas fa-plus float-right fa-lg"></i>
-            </a>
-          </div>
-          <div className="col-8">
-            <br/>
-            <ul className="nav nav-pills">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">Topic
-                  1</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Topic 2</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Topic 3</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Topic 4</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  <i className="fas fa-plus"></i>
-                </a>
-              </li>
 
-            </ul>
-            Content
+        <div className="container dy-editor-container">
+          <div className="row">
+            <div className="col-4">
+              <ModuleList/>
+            </div>
+            <div className="col-8">
+              <LessonTabs/>
+            </div>
           </div>
 
         </div>
-      </div>
 
-
-    </div>
+      </Provider>
+  )
+}
 
 export default CourseEditor
