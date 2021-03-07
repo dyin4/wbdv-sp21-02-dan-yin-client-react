@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react'
 import {connect} from "react-redux";
 import EditableItem from "./editable-item";
 import {useParams} from 'react-router-dom'
-// import {findModulesForCourse} from "../services/module-service";
 import moduleService from "../../services/module-service"
 
 const ModuleList = ({
@@ -24,7 +23,6 @@ const ModuleList = ({
 
   return (
       <div>
-        <h2>Modules {modules.length}</h2>
         <ul className="list-group">
           {
             modules.map(module =>

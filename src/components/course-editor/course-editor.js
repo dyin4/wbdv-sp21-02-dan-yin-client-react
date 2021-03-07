@@ -8,10 +8,13 @@ import ModuleList from "./module-list";
 import LessonTabs from "./lesson-tabs";
 import lessonReducer from "../../reducer/lesson-reducer";
 import "../../index.css"
+import TopicPills from "./topic-pills";
+import topicReducer from "../../reducer/topic-reducer";
 
 const reducer = combineReducers({
   moduleReducer: moduleReducer,
-  lessonReducer: lessonReducer
+  lessonReducer: lessonReducer,
+  topicReducer : topicReducer
 })
 
 // const store = createStore(moduleReducer)
@@ -37,6 +40,7 @@ const CourseEditor = ({history}) => {
             </div>
             <div className="col-8">
               <LessonTabs/>
+              <TopicPills/>
             </div>
           </div>
 

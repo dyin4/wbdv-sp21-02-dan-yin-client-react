@@ -22,13 +22,13 @@ const LessonTabs = ({lessons=[
   useEffect(() => {
     setDelete(false)
     setUpdate(false)
-    if(moduleId !== "undefined" && typeof  moduleId !== "undefined"){
-      findLessonsForModule(moduleId)
-    }
+    // if(moduleId !== "undefined" && typeof  moduleId !== "undefined"){
+    //   findLessonsForModule(moduleId)
+    // }
+    findLessonsForModule(moduleId)
   }, [moduleId, deleted, updated])
   return(
   <div>
-    <h2>Lessons {courseId}</h2>
     <ul className="nav nav-tabs">
       {
         lessons.map(lesson =>
