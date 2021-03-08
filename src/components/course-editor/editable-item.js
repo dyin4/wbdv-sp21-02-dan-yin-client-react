@@ -30,6 +30,7 @@ const EditableItem = (
 
 
         {editing &&
+            <div className="nav-link">
         <div className="row dy-input-row">
           <input className="col-9 col-sm-8"
               onChange={(e) =>
@@ -48,6 +49,7 @@ const EditableItem = (
               setUpdate(true)
               updateItem(cachedItem)
             }} className="fas fa-check my-fa-check"></i>
+          </div>
 
         </div>
         </div>

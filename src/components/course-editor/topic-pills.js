@@ -18,13 +18,13 @@ const TopicPills = ({topics = [],
   useEffect(() => {
     setDelete(false)
     setUpdate(false)
-    if(lessonId !== "undefined" && typeof  lessonId !== "undefined" || moduleId !== "undefined" && typeof  moduleId !== "undefined") {
+    if(lessonId !== "undefined" && typeof  lessonId !== "undefined") {
       findTopicsForLesson(lessonId)
     }else{
       findTopicsForLesson("null")
     }
   }, [lessonId, deleted, updated])
-  
+
   return(
       <div>
         <ul className="nav nav-pills">

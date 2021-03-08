@@ -26,6 +26,7 @@ const CourseEditor = ({history}) => {
   console.log("courseId", courseId)
   console.log("moduleId", moduleId)
 
+
   return (
       <Provider store={store}>
         <div className="row right-block">
@@ -38,7 +39,7 @@ const CourseEditor = ({history}) => {
         <div className="container dy-editor-container">
           <div className="row">
             <div className="col-4">
-              <ModuleList/>
+              <ModuleList />
             </div>
             <div className="col-8">
               <LessonTabs/>

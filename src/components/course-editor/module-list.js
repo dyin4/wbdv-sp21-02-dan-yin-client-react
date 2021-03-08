@@ -4,7 +4,6 @@ import EditableItem from "./editable-item";
 import {useParams, Redirect, Link, withRouter, Route} from 'react-router-dom'
 import moduleService from "../../services/module-service"
 import {compose} from "redux"
-import CourseEditor from "./course-editor";
 
 const ModuleList = ({
   modules = [],
@@ -12,6 +11,7 @@ const ModuleList = ({
   deleteModule,
   updateModule,
   findModulesForCourse,
+  rerenderParentCallback
 }) => {
 
   const {layout, courseId, moduleId} = useParams();
@@ -20,9 +20,6 @@ const ModuleList = ({
 
 
   useEffect(() => {
-
-
-
     findModulesForCourse(courseId)
 
   }, [])
