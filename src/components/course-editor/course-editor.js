@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {Link, useParams} from "react-router-dom";
+import {Link, useParams, useLocation} from "react-router-dom";
 import "../../styles/course-editor.css";
 import moduleReducer from "../../reducer/modules-reducer"
 import {combineReducers, createStore} from "redux";
@@ -10,6 +10,7 @@ import lessonReducer from "../../reducer/lesson-reducer";
 import "../../index.css"
 import TopicPills from "./topic-pills";
 import topicReducer from "../../reducer/topic-reducer";
+import courseService from "../../services/course-service"
 
 const reducer = combineReducers({
   moduleReducer: moduleReducer,
@@ -20,18 +21,21 @@ const reducer = combineReducers({
 // const store = createStore(moduleReducer)
 const store = createStore(reducer)
 
-const CourseEditor = ({history}) => {
+const CourseEditor = ({}) => {
 
-  const {layout, courseId, moduleId} = useParams();
 
   //
   // const[rerender, setRender] = useState(false)
   //
-  // useEffect(() => {
-  //   setRender(false)
-  // }, [rerender])
-  //
-  // console.log("re", rerender)
+  const {layout, courseId, moduleId} = useParams();
+
+  const [title, setTitle] = useState("")
+
+  useEffect(() => {
+    courseService.findCourseById(courseId).then((data) => setTitle(data.title))
+  }, [])
+
+  console.log("title", title)
 
 
   return (
@@ -39,7 +43,7 @@ const CourseEditor = ({history}) => {
         <div className="row right-block">
           <Link to={`/courses/${layout}`}
                 className="fa fa-arrow-left fa-2x col-sm-1"></Link>
-          <h1 className="col-sm-10">WebDev Selected Course</h1>
+          <h1 className="col-sm-10">WebDev {title}</h1>
 
         </div>
 
