@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {Link, useParams} from "react-router-dom";
 import "../../styles/course-editor.css";
 import moduleReducer from "../../reducer/modules-reducer"
@@ -21,9 +21,11 @@ const reducer = combineReducers({
 const store = createStore(reducer)
 
 const CourseEditor = ({history}) => {
-  console.log("history", history)
 
   const {layout, courseId, moduleId} = useParams();
+  console.log("courseId", courseId)
+  console.log("moduleId", moduleId)
+
   return (
       <Provider store={store}>
         <div className="row right-block">

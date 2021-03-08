@@ -1,48 +1,59 @@
 import React, {useEffect, useState} from 'react'
 import {connect} from "react-redux";
 import EditableItem from "./editable-item";
-import {useParams} from 'react-router-dom'
+import {useParams, Redirect, Link, withRouter, Route} from 'react-router-dom'
 import moduleService from "../../services/module-service"
+import {compose} from "redux"
+import CourseEditor from "./course-editor";
 
 const ModuleList = ({
   modules = [],
   createModule,
   deleteModule,
   updateModule,
-  findModulesForCourse
+  findModulesForCourse,
 }) => {
 
   const {layout, courseId, moduleId} = useParams();
   const[deleted, setDelete] = useState(false)
   const[updated, setUpdate] = useState(false)
 
+
   useEffect(() => {
-    //alert(courseId)
+
+
+
     findModulesForCourse(courseId)
+
   }, [])
 
-  return (
-      <div>
-        <ul className="list-group">
-          {
-            modules.map(module =>
-                <li className={`list-group-item ${module._id === moduleId ? 'active' : ''}`}>
-                  <EditableItem to={`/courses/${layout}/edit/${courseId}/${module._id}`}
-                                item={module}
-                                deleteItem={deleteModule}
-                                updateItem={updateModule}
-                                setDelete={setDelete}
-                                setUpdate={setUpdate}
-                  />
-                </li>
-            )
-          }
-          <li className="list-group-item">
-            <i onClick={() => createModule(courseId)} className="fa fa-plus fa-2x d-flex justify-content-center "></i>
+    return (
+        <div>
+          <ul className="list-group">
+            {
+              modules.map(module =>
+                  <li className={`list-group-item ${module._id === moduleId
+                      ? 'active' : ''}`}>
+                    <EditableItem
+                        to={`/courses/${layout}/edit/${courseId}/${module._id}`}
+                        key={module._id}
+                        item={module}
+                        deleteItem={deleteModule}
+                        updateItem={updateModule}
+                        setDelete={setDelete}
+                        setUpdate={setUpdate}
+                    />
+                  </li>
+              )
+            }
+            <li className="list-group-item">
+              <i onClick={() => createModule(courseId)}
+                 className="fa fa-plus fa-2x d-flex justify-content-center "></i>
 
-          </li>
-        </ul>
-      </div>)
+            </li>
+          </ul>
+        </div>)
+
 }
 
 const stateToPropsMapper = (state) => {
@@ -87,4 +98,4 @@ const dispatchPropsMapper = (dispatch) => {
 
 }
 
-export default connect(stateToPropsMapper, dispatchPropsMapper)(ModuleList)
+export default compose (withRouter, connect(stateToPropsMapper, dispatchPropsMapper))(ModuleList)

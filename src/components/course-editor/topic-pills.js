@@ -18,12 +18,13 @@ const TopicPills = ({topics = [],
   useEffect(() => {
     setDelete(false)
     setUpdate(false)
-    // if(lessonId !== "undefined" && typeof  lessonId !== "undefined" || moduleId !== "undefined" && typeof  moduleId !== "undefined") {
-    //
-    // }
-    findTopicsForLesson(lessonId)
+    if(lessonId !== "undefined" && typeof  lessonId !== "undefined" || moduleId !== "undefined" && typeof  moduleId !== "undefined") {
+      findTopicsForLesson(lessonId)
+    }else{
+      findTopicsForLesson("null")
+    }
   }, [lessonId, deleted, updated])
-  console.log("topics ", topics)
+  
   return(
       <div>
         <ul className="nav nav-pills">
@@ -34,6 +35,7 @@ const TopicPills = ({topics = [],
                       active={topicId === topic._id}
                       to={`/courses/${layout}/edit/${courseId}/${moduleId}/${lessonId}/${topic._id}`}
                       item={topic}
+                      key={topic._id}
                       deleteItem={deleteTopic}
                       updateItem={updateTopic}
                       setUpdate={setUpdate}

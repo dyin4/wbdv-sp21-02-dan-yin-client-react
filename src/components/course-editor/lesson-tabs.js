@@ -22,10 +22,11 @@ const LessonTabs = ({lessons=[
   useEffect(() => {
     setDelete(false)
     setUpdate(false)
-    // if(moduleId !== "undefined" && typeof  moduleId !== "undefined"){
-    //   findLessonsForModule(moduleId)
-    // }
-    findLessonsForModule(moduleId)
+    if(moduleId !== "undefined" && typeof moduleId !== "undefined"){
+      findLessonsForModule(moduleId)
+    }else{
+      findLessonsForModule("null")
+    }
   }, [moduleId, deleted, updated])
   return(
   <div>
@@ -36,6 +37,7 @@ const LessonTabs = ({lessons=[
               <EditableItem
                   active={lessonId ===lesson._id}
                   to={`/courses/${layout}/edit/${courseId}/${moduleId}/${lesson._id}`}
+                  key={lesson._id}
                   item={lesson}
                   deleteItem={deleteLessonForModule}
                   updateItem={updateLesson}

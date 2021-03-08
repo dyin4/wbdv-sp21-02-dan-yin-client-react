@@ -125,3 +125,12 @@ table.table {
 .nav-pills {
   margin-top: 5%;
 }
+
+/*.dy-input-row {*/
+/*  width: 90%;*/
+/*}*/
+
+.my-fa-btns {
+  padding-left: 0px;
+  padding-right: 0px;
+}

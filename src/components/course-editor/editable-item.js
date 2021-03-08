@@ -20,24 +20,23 @@ const EditableItem = (
         {
           !editing &&
           <>
-            <div className={`nav-link ${active?'active':''}`} >
-            <Link  to={to}>
+            <Link  className={`nav-link ${active?'active':''}`} to={to}>
               {item.title}
-            </Link>
               <i onClick={() => setEditing(true)} className="fas fa-edit my-fa-edit float-right"></i>
-            </div>
+            </Link>
+
             </>
         }
 
 
         {editing &&
-        <>
-          <input className="col-12 col-sm-10"
+        <div className="row dy-input-row">
+          <input className="col-9 col-sm-8"
               onChange={(e) =>
                   setCashedItem({...cachedItem, title: e.target.value})}
               value={cachedItem.title}
           />
-          <div className="col-2 d-flex my-fa-btns">
+          <div className="col-12 col-sm-3 d-flex justify-content-md-end my-fa-btns">
             <i onClick={() => {
               setEditing(false)
               setDelete(true)
@@ -51,7 +50,7 @@ const EditableItem = (
             }} className="fas fa-check my-fa-check"></i>
 
         </div>
-        </>
+        </div>
           }
         </>
   )
