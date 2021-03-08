@@ -11,7 +11,6 @@ const ModuleList = ({
   deleteModule,
   updateModule,
   findModulesForCourse,
-  rerenderParentCallback
 }) => {
 
   const {layout, courseId, moduleId} = useParams();

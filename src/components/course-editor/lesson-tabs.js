@@ -13,7 +13,7 @@ const LessonTabs = ({lessons=[
 ],findLessonsForModule,
   createLessonForModule,
   deleteLessonForModule,
-  updateLesson
+  updateLesson,
 }) => {
   const {layout, courseId, moduleId, lessonId} = useParams();
   const[deleted, setDelete] = useState(false)

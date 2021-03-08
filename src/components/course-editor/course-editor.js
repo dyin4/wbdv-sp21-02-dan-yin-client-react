@@ -23,8 +23,15 @@ const store = createStore(reducer)
 const CourseEditor = ({history}) => {
 
   const {layout, courseId, moduleId} = useParams();
-  console.log("courseId", courseId)
-  console.log("moduleId", moduleId)
+
+  //
+  // const[rerender, setRender] = useState(false)
+  //
+  // useEffect(() => {
+  //   setRender(false)
+  // }, [rerender])
+  //
+  // console.log("re", rerender)
 
 
   return (
@@ -39,7 +46,7 @@ const CourseEditor = ({history}) => {
         <div className="container dy-editor-container">
           <div className="row">
             <div className="col-4">
-              <ModuleList />
+              <ModuleList/>
             </div>
             <div className="col-8">
               <LessonTabs/>

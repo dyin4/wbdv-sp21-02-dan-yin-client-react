@@ -42,6 +42,7 @@ const EditableItem = (
               setEditing(false)
               setDelete(true)
               deleteItem(item)
+
             }} className="fas fa-times my-fa-times"></i>
 
             <i onClick={() => {
