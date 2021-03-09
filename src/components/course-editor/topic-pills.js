@@ -18,7 +18,7 @@ const TopicPills = ({topics = [],
   useEffect(() => {
     setDelete(false)
     setUpdate(false)
-    if(lessonId !== "undefined" && typeof  lessonId !== "undefined") {
+    if(lessonId !== "undefined" && typeof lessonId !== "undefined") {
       findTopicsForLesson(lessonId)
     }else{
       findTopicsForLesson("null")

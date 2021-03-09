@@ -71,10 +71,20 @@ const dispatchPropsMapper = (dispatch) => {
     },
     deleteModule: (item) =>
         moduleService.deleteModule(item._id)
-        .then(status => dispatch({
-          type: "DELETE_MODULE",
-          moduleToDelete: item
-        })),
+        .then(status => {
+          dispatch({
+            type: "FIND_TOPICS",
+            lessons:[]
+          })
+          dispatch({
+            type: "FIND_LESSONS",
+            lessons:[]
+          })
+          dispatch({
+            type: "DELETE_MODULE",
+            moduleToDelete: item
+          })
+        }),
 
     updateModule: (newItem) => {
       moduleService.updateModule(newItem._id, newItem).then(status =>

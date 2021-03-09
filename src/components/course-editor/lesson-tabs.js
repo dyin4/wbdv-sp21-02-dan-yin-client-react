@@ -34,6 +34,7 @@ const LessonTabs = ({lessons=[
       {
         lessons.map(lesson =>
             <li className="nav-item">
+              {console.log("Lesson")}
               <EditableItem
                   active={lessonId ===lesson._id}
                   to={`/courses/${layout}/edit/${courseId}/${moduleId}/${lesson._id}`}
@@ -82,10 +83,16 @@ const dispatchPropsMapper = (dispatch) => ({
   deleteLessonForModule: (lesson) => {
     console.log("delete lesson", lesson._id)
     lessonService.deleteLessonForModule(lesson._id)
-    .then(lesson => dispatch({
-      type: "DELETE_LESSON",
-      lessonToDelete: lesson
-    }))
+    .then(lesson => {
+      dispatch({
+        type: "FIND_TOPICS",
+        lessons:[]
+      })
+      dispatch({
+        type: "DELETE_LESSON",
+        lessonToDelete: lesson
+      })
+    })
   },
 
   updateLesson: (lesson) => {

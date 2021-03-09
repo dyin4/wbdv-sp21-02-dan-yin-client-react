@@ -23,10 +23,6 @@ const store = createStore(reducer)
 
 const CourseEditor = ({}) => {
 
-
-  //
-  // const[rerender, setRender] = useState(false)
-  //
   const {layout, courseId, moduleId} = useParams();
 
   const [title, setTitle] = useState("")
@@ -34,9 +30,6 @@ const CourseEditor = ({}) => {
   useEffect(() => {
     courseService.findCourseById(courseId).then((data) => setTitle(data.title))
   }, [])
-
-  console.log("title", title)
-
 
   return (
       <Provider store={store}>
