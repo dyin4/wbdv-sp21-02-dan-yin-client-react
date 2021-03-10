@@ -34,7 +34,7 @@ const EditableItem = (
         <div className="row dy-input-row">
           <input className="col-9 col-sm-8"
               onChange={(e) =>
-                  setCashedItem({...cachedItem, title: e.target.value})}
+                  setCashedItem({...item, title: e.target.value})}
               value={cachedItem.title}
           />
           <div className="col-12 col-sm-3 d-flex justify-content-md-end my-fa-btns">
