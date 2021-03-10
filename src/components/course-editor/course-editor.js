@@ -35,7 +35,7 @@ const CourseEditor = ({}) => {
       <Provider store={store}>
         <div className="row right-block">
           <Link to={`/courses/${layout}`}
-                className="fa fa-arrow-left fa-2x col-sm-1"></Link>
+                className="fa fa-times fa-2x col-sm-1 my-close"></Link>
           <h1 className="col-sm-10">WebDev {title}</h1>
 
         </div>
