@@ -92,6 +92,10 @@ const dispatchPropsMapper = (dispatch) => ({
         type: "DELETE_LESSON",
         lessonToDelete: lesson
       })
+      dispatch({
+        type: "FIND_WIDGETS",
+        widgets:[]
+      })
     })
   },
 

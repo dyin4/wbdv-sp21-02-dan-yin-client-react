@@ -34,10 +34,19 @@ export const findWidgetsForTopics = (dispatch, topicId) => {
   }))
 }
 
+export const updateWidget = (dispatch, wid, widget) => {
+  widgetService.updateWidget(wid, widget)
+  .then(widgets => dispatch({
+    type: "UPDATE_WIDGET",
+    widget
+  }))
+}
+
 const widgetActions = {
  findWidgetsForTopics,
   createWidgetsForTopic,
-  deleteWidget
+  deleteWidget,
+  updateWidget
 
 }
 

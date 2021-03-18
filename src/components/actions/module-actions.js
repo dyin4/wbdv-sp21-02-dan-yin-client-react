@@ -23,6 +23,11 @@ export const deleteModule = (dispatch, item) =>
         type: "FIND_LESSONS",
         lessons:[]
       })
+
+      dispatch({
+        type: "FIND_WIDGETS",
+        widgets:[]
+      })
       dispatch({
         type: "DELETE_MODULE",
         moduleToDelete: item

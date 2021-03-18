@@ -79,9 +79,14 @@ const dispatchPropsMapper = (dispatch) => ({
   deleteTopic: (topic) => {
     console.log("delete lesson", topic._id)
     topicService.deleteTopic(topic._id)
-    .then(topic => dispatch({
+    .then(topic =>
+        dispatch({
       type: "DELETE_TOPIC",
       delete: topic
+    }),
+    dispatch({
+      type: "FIND_WIDGETS",
+      widgets:[]
     }))
   },
   //
