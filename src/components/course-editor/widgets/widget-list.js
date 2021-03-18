@@ -58,6 +58,7 @@ const WidgetList = ({
                 <ParagraphWidget
                     className = "dy-widget"
                     editing = { selectedWidget.id === widget.id}
+                    setWidget = {setWidget}
                     widget = {widget}
                     update = {updateWidget}
                     deleteWidget = {deleteWidget}/>
