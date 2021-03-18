@@ -11,11 +11,14 @@ import "../../index.css"
 import TopicPills from "./topic-pills";
 import topicReducer from "../../reducer/topic-reducer";
 import courseService from "../../services/course-service"
+import WidgetList from "./widgets/widget-list";
+import widgetReducer from "../../reducer/widget-reducer";
 
 const reducer = combineReducers({
   moduleReducer: moduleReducer,
   lessonReducer: lessonReducer,
-  topicReducer : topicReducer
+  topicReducer : topicReducer,
+  widgetReducer : widgetReducer
 })
 
 // const store = createStore(moduleReducer)
@@ -25,7 +28,7 @@ const CourseEditor = ({}) => {
 
   const {layout, courseId, moduleId} = useParams();
 
-  const [title, setTitle] = useState("")
+  const [title, setTitle] = useState("");
 
   useEffect(() => {
     courseService.findCourseById(courseId).then((data) => setTitle(data.title))
@@ -48,6 +51,7 @@ const CourseEditor = ({}) => {
             <div className="col-8">
               <LessonTabs/>
               <TopicPills/>
+              <WidgetList/>
             </div>
           </div>
 

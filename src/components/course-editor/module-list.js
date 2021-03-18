@@ -4,6 +4,7 @@ import EditableItem from "./editable-item";
 import {useParams, Redirect, Link, withRouter, Route} from 'react-router-dom'
 import moduleService from "../../services/module-service"
 import {compose} from "redux"
+import moduleActions from "../actions/module-actions";
 
 const ModuleList = ({
   modules = [],
@@ -62,42 +63,17 @@ const stateToPropsMapper = (state) => {
 const dispatchPropsMapper = (dispatch) => {
   return {
     createModule: (courseId) => {
-      moduleService.createModule(courseId, {title:"New Title"})
-      .then(theActualModule => dispatch({
-        type: "CREATE_MODULE",
-        module: theActualModule
-
-      }))
+     moduleActions.createModule(dispatch, courseId)
     },
     deleteModule: (item) =>
-        moduleService.deleteModule(item._id)
-        .then(status => {
-          dispatch({
-            type: "FIND_TOPICS",
-            lessons:[]
-          })
-          dispatch({
-            type: "FIND_LESSONS",
-            lessons:[]
-          })
-          dispatch({
-            type: "DELETE_MODULE",
-            moduleToDelete: item
-          })
-        }),
+    {moduleActions.deleteModule(dispatch, item)},
 
     updateModule: (newItem) => {
-      moduleService.updateModule(newItem._id, newItem).then(status =>
-      dispatch({type: "UPDATE_MODULE", updateModule: newItem})
-      )
+     moduleActions.updateModule(dispatch, newItem)
     },
 
     findModulesForCourse: (courseId) => {
-      moduleService.findModulesForCourse(courseId)
-      .then(theModules => dispatch({
-        type: "FIND_MODULES_FOR_COURSE",
-        modules: theModules
-      }))
+     moduleActions.findModulesForCourse(dispatch, courseId)
     }
 
   }
