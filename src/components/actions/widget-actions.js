@@ -11,22 +11,14 @@ export const createWidgetsForTopic = (dispatch, topicId) => {
 
   }))
 }
-// export const deleteModule = (dispatch, item) =>
-//     moduleService.deleteModule(item._id)
-//     .then(status => {
-//       dispatch({
-//         type: "FIND_TOPICS",
-//         lessons:[]
-//       })
-//       dispatch({
-//         type: "FIND_LESSONS",
-//         lessons:[]
-//       })
-//       dispatch({
-//         type: "DELETE_MODULE",
-//         moduleToDelete: item
-//       })
-//     })
+export const deleteWidget= (dispatch, wid) =>
+    widgetService.deleteWidget(wid)
+    .then(status => {
+      dispatch({
+        type: "DELETE_WIDGET",
+        wid:wid
+      })
+    })
 
 // export const updateModule = (dispatch, newItem) => {
 //   moduleService.updateModule(newItem._id, newItem).then(status =>
@@ -44,7 +36,8 @@ export const findWidgetsForTopics = (dispatch, topicId) => {
 
 const widgetActions = {
  findWidgetsForTopics,
-  createWidgetsForTopic
+  createWidgetsForTopic,
+  deleteWidget
 
 }
 

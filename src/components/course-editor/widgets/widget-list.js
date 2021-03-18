@@ -122,7 +122,8 @@ const stateToPropsMapper = (state) => {
 
 const dispatchPropsMapper = (dispatch) => ({
   findWidgetsForTopics: (topicId) => widgetActions.findWidgetsForTopics(dispatch, topicId),
-  createWidgetsForTopic: (topicId) => widgetActions.createWidgetsForTopic(dispatch, topicId)
+  createWidgetsForTopic: (topicId) => widgetActions.createWidgetsForTopic(dispatch, topicId),
+  deleteWidget : (wid) => widgetActions.deleteWidget(dispatch, wid)
 })
 
 export default connect(stateToPropsMapper, dispatchPropsMapper)(WidgetList)

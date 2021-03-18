@@ -26,8 +26,8 @@ const widgetReducer = (state = initialState, action)=> {
     case "DELETE_WIDGET":
       return {
         ...state,
-        topics: state.topics.filter(topic => {
-          if(topic._id === action.delete._id){
+        widgets: state.widgets.filter(widget => {
+          if(widget.id === action.wid){
             return false
           }else{
             return true
@@ -35,7 +35,7 @@ const widgetReducer = (state = initialState, action)=> {
         })
       }
 
-    case "UPDATE_TOPIC":
+    case "UPDATE_WIDGET":
       return {
         ...state,
         topics: state.topics.map(topic => {
