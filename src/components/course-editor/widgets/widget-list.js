@@ -25,14 +25,12 @@ const WidgetList = ({
   }, [topicId])
 
   return(
-      <div>
+      <div className="conatiner">
         <i className="fas fa-plus fa-2x float-right" onClick={() => {
           createWidgetsForTopic(topicId)
         }}></i>
 
-
-        <h2>Widget {widgets.length} {selectedWidget.id}</h2>
-        <ul className="list-group">
+        <ul className="list-group dy-widget-list-group">
           {
             widgets.map(widget =>
             <li className="list-group-item" key={widget.id}>

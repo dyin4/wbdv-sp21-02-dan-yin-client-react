@@ -20,11 +20,6 @@ export const deleteWidget= (dispatch, wid) =>
       })
     })
 
-// export const updateModule = (dispatch, newItem) => {
-//   moduleService.updateModule(newItem._id, newItem).then(status =>
-//       dispatch({type: "UPDATE_MODULE", updateModule: newItem})
-//   )
-// }
 
 export const findWidgetsForTopics = (dispatch, topicId) => {
   widgetService.findWidgetsForTopic(topicId)

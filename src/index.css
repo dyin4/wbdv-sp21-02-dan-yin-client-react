@@ -143,3 +143,8 @@ table.table {
 p {
   width: 90%;
 }
+
+.dy-widget-list-group {
+  padding-top: 10px;
+  width: 90%;
+}
