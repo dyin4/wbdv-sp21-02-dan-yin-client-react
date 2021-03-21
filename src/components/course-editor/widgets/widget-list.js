@@ -25,7 +25,7 @@ const WidgetList = ({
   }, [topicId])
 
   return(
-      <div className="conatiner">
+      <div className="container">
         <i className="fas fa-plus fa-2x float-right" onClick={() => {
           createWidgetsForTopic(topicId)
         }}></i>

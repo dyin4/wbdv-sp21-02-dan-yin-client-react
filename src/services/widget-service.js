@@ -1,11 +1,11 @@
 
-
+const WIDGET_URL = process.env.REACT_APP_WIDGET_URL
 const findWidgetsForTopic = (topicId) =>
-    fetch(`https://danyinhw.herokuapp.com/data/topics/${topicId}/widgets`)
+    fetch(`${WIDGET_URL}/topics/${topicId}/widgets`)
     .then(response => response.json())
 
 const createWidgetsForTopic = (topicId) =>
-    fetch(`https://danyinhw.herokuapp.com/data/topics/${topicId}/widgets`, {
+    fetch(`${WIDGET_URL}/topics/${topicId}/widgets`, {
       method:"POST",
       body: JSON.stringify({type:"HEADING", size: 1, text:"New Widget"}),
       headers: {
@@ -14,12 +14,12 @@ const createWidgetsForTopic = (topicId) =>
     }).then(response => response.json())
 
 export const deleteWidget= (wid) =>
-    fetch(`https://danyinhw.herokuapp.com/data/widgets/${wid}`, {
+    fetch(`${WIDGET_URL}/widgets/${wid}`, {
       method:"DELETE",
     }).then(response => response.json());
 
 export const updateWidget = (wid, widget) =>
-    fetch(`https://danyinhw.herokuapp.com/data/widgets/${wid}`, {
+    fetch(`${WIDGET_URL}/widgets/${wid}`, {
       method:"PUT",
       body: JSON.stringify(widget),
       headers: {
