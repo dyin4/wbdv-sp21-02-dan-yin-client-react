@@ -56,10 +56,13 @@ const EditingItem = ({widget, update, deleteWidget, setWidget}) => {
           {
             cachedItem.type === "LIST" &&
             <>
-              <input checked={widget.ordered} type="checkbox"
+              <input checked={cachedItem.ordered} type="checkbox"
                      onChange={(e) => setCashedItem(
                          {...cachedItem, ordered: e.target.checked})}/> Ordered
               <br/>
+              <label className="form-check-label">List item
+              </label>
+
               <textarea className="form-control" value={cachedItem.text}
                         onChange={(e) => setCashedItem(
                             {...cachedItem, text: e.target.value})}>
@@ -73,18 +76,18 @@ const EditingItem = ({widget, update, deleteWidget, setWidget}) => {
             <>
               <label className="form-check-label">Image URL
               </label>
-                <input value={widget.url} className="form-control"
-                       onChange={(e) => setCashedItem(
-                           {...cachedItem, url: e.target.value})}/>
+              <input value={cachedItem.url} className="form-control"
+                     onChange={(e) => setCashedItem(
+                         {...cachedItem, url: e.target.value})}/>
 
               <label className="form-check-label">Image width</label>
 
-              <input value={widget.width} className="form-control"
+              <input value={cachedItem.width} className="form-control"
                      onChange={(e) => setCashedItem(
                          {...cachedItem, width: e.target.value})}/>
 
               <label className="form-check-label">Image height</label>
-              <input value={widget.height} className="form-control"
+              <input value={cachedItem.height} className="form-control"
                      onChange={(e) => setCashedItem(
                          {...cachedItem, height: e.target.value})}/>
 
