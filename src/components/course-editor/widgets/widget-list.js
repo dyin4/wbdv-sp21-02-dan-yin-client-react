@@ -5,9 +5,11 @@ import {useParams} from "react-router-dom";
 import widgetActions, {findWidgetsForTopics} from "../../actions/widget-actions";
 import {connect} from "react-redux";
 import "../../../index.css"
+import ListWidget from "./list-widget";
+import ImageWidget from "./image-widget";
 
 const WidgetList = ({
-    widgets = [],
+  widgets = [],
   findWidgetsForTopics,
   createWidgetsForTopic,
   deleteWidget,
@@ -20,11 +22,13 @@ const WidgetList = ({
 
   useEffect(() => {
     //Move server communication to widget-service
-   findWidgetsForTopics(topicId)
+    findWidgetsForTopics(topicId)
 
   }, [topicId])
 
-  return(
+  console.log("widgets", widgets)
+
+  return (
       <div className="container">
         <i className="fas fa-plus fa-2x float-right" onClick={() => {
           createWidgetsForTopic(topicId)
@@ -33,35 +37,55 @@ const WidgetList = ({
         <ul className="list-group dy-widget-list-group">
           {
             widgets.map(widget =>
-            <li className="list-group-item" key={widget.id}>
-              { selectedWidget.id !== widget.id &&
-              <i className="fas fa-2x fa-cog float-right"
-                  onClick={() => setWidget(widget)}></i>}
+                <li className="list-group-item" key={widget.id}>
+                  {selectedWidget.id !== widget.id &&
+                  <i className="fas fa-2x fa-cog float-right"
+                     onClick={() => setWidget(widget)}></i>}
 
-          {
-            widget.type === "HEADING" &&
+                  {
+                    widget.type === "HEADING" &&
 
-              <HeadingWidget
-                  className = "dy-widget"
-                  editing = { selectedWidget.id === widget.id}
-                  setWidget = {setWidget}
-                  widget = {widget}
-                  update = {updateWidget}
-                  deleteWidget = {deleteWidget}
-              />
-          }
+                    <HeadingWidget
+                        className="dy-widget"
+                        editing={selectedWidget.id === widget.id}
+                        setWidget={setWidget}
+                        widget={widget}
+                        update={updateWidget}
+                        deleteWidget={deleteWidget}
+                    />
+                  }
 
-              {
-                widget.type === "PARAGRAPH" &&
-                <ParagraphWidget
-                    className = "dy-widget"
-                    editing = { selectedWidget.id === widget.id}
-                    setWidget = {setWidget}
-                    widget = {widget}
-                    update = {updateWidget}
-                    deleteWidget = {deleteWidget}/>
-              }
-            </li>
+                  {
+                    widget.type === "PARAGRAPH" &&
+                    <ParagraphWidget
+                        className="dy-widget"
+                        editing={selectedWidget.id === widget.id}
+                        setWidget={setWidget}
+                        widget={widget}
+                        update={updateWidget}
+                        deleteWidget={deleteWidget}/>
+                  }
+
+                  {
+                    widget.type === "LIST" &&
+                    <ListWidget
+                        editing={selectedWidget.id === widget.id}
+                        setWidget={setWidget}
+                        widget={widget}
+                        update={updateWidget}
+                        deleteWidget={deleteWidget}/>
+                  }
+
+                  {
+                    widget.type === "IMAGE" &&
+                    <ImageWidget
+                        editing={selectedWidget.id === widget.id}
+                        setWidget={setWidget}
+                        widget={widget}
+                        update={updateWidget}
+                        deleteWidget={deleteWidget}/>
+                  }
+                </li>
             )
           }
 
@@ -79,10 +103,13 @@ const stateToPropsMapper = (state) => {
 }
 
 const dispatchPropsMapper = (dispatch) => ({
-  findWidgetsForTopics: (topicId) => widgetActions.findWidgetsForTopics(dispatch, topicId),
-  createWidgetsForTopic: (topicId) => widgetActions.createWidgetsForTopic(dispatch, topicId),
-  deleteWidget : (wid) => widgetActions.deleteWidget(dispatch, wid),
-  updateWidget: (wid, widget) => widgetActions.updateWidget(dispatch, wid, widget)
+  findWidgetsForTopics: (topicId) => widgetActions.findWidgetsForTopics(
+      dispatch, topicId),
+  createWidgetsForTopic: (topicId) => widgetActions.createWidgetsForTopic(
+      dispatch, topicId),
+  deleteWidget: (wid) => widgetActions.deleteWidget(dispatch, wid),
+  updateWidget: (wid, widget) => widgetActions.updateWidget(dispatch, wid,
+      widget)
 })
 
 export default connect(stateToPropsMapper, dispatchPropsMapper)(WidgetList)
