@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {useParams} from 'react-router-dom'
+import {useParams, useLocation} from 'react-router-dom'
 import Question from "./questions/question";
 import {connect} from "react-redux";
 import quizActions from "../actions/quiz-actions";
@@ -10,6 +10,7 @@ const Quiz = ({
 }) => {
   const {quizId} = useParams()
   const [questions, setQuestions] = useState([])
+  let location  = useLocation()
   useEffect(() => {
     quizService.findQuizById(quizId).then((q) => setQuestions(q))
   },[quizId])
@@ -17,10 +18,10 @@ const Quiz = ({
 
   return(
       <div>
-        <h3>Quiz {quizId}</h3>
-        <ul>
+        <h3>{location.quizTitle}</h3>
+        <ul className="list-group">
         {questions.map(q =>
-            <li>
+            <li className="list-group-item">
               <Question q={q}/>
             </li>
         )}

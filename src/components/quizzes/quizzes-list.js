@@ -15,11 +15,15 @@ const QuizzesList = () => {
   return(
       <div>
         <h2>Quizzes</h2>
-        <ul>{
+        <ul className="list-group">{
           quizzes.map(q =>
-          <li>
-            <Link to={`/courses/${courseId}/quizzes/${q._id}`}>{q.title}</Link>
-
+          <li className="list-group-item">
+            <Link to={{
+              pathname: `/courses/${courseId}/quizzes/${q._id}`,
+            quizTitle:q.title}}>
+              {q.title}
+              <button className="btn btn-primary float-right">start</button>
+            </Link>
           </li>)
 
         }</ul>
