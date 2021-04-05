@@ -49,6 +49,9 @@ const CourseRow = (
         <td className="d-none d-md-table-cell">{owner}</td>
         <td className="d-none d-lg-table-cell">{lastModified}</td>
         <td>
+          <Link to={`/courses/${course._id}/quizzes`}>Quizzes</Link>
+        </td>
+        <td>
           {editing && <i className="fas fa-times float-right fa-2x"
                          onClick={() => {
                            setEditing(false)

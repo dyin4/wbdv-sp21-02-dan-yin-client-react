@@ -1,4 +1,3 @@
-
 const WIDGET_URL = process.env.REACT_APP_WIDGET_URL
 const findWidgetsForTopic = (topicId) =>
     fetch(`${WIDGET_URL}/topics/${topicId}/widgets`)
