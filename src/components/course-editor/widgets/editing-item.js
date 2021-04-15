@@ -25,7 +25,8 @@ const EditingItem = ({widget, update, deleteWidget, setWidget}) => {
             <>
               <input className="form-control" value={cachedItem.text}
                      onChange={(e) => setCashedItem(
-                         {...cachedItem, text: e.target.value})}/>
+                         {...cachedItem, text: e.target.value})}
+              />
 
               <select className="form-control" value={cachedItem.size}
                       onChange={(e) => setCashedItem(

@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
+import quizActions from "../../actions/quiz-actions";
+import {connect} from "react-redux";
 
 const choices = ["true", "false"]
-const TrueFalseQuestion = ({q}) => {
+const TrueFalseQuestion = ({q, selectAnswer}) => {
   const [yourAnswer, setAnswer] = useState("")
   const [graded, setGraded] = useState(false)
   const handleClick = () => {
@@ -22,7 +24,7 @@ const TrueFalseQuestion = ({q}) => {
               return(
                   <li className={`list-group-item ${ !graded? "" : (choice === q.correct ? 'list-group-item-success' : (yourAnswer === choice ? 'list-group-item-danger' : ""))} `}>
                     <label>
-                      <input type = "radio" name = {q._id} onClick={() => setAnswer(choice)} disabled={graded}/> {choice}</label>
+                      <input type = "radio" name = {q._id} onClick={() => selectAnswer(q.question, choice)} disabled={graded}/> {choice}</label>
                     {graded && q.correct === choice && <i className="fa fa-check float-right"></i>}
                     {graded && q.correct !== yourAnswer && q.correct !== choice && choice === yourAnswer  && <i className="fa fa-times float-right"></i>}
                   </li>
@@ -37,4 +39,15 @@ const TrueFalseQuestion = ({q}) => {
 
   )
 }
-export default TrueFalseQuestion
+
+const stateToPropsMapper = (state) => {
+}
+
+
+const dispatchPropsMapper = (dispatch) => ({
+  selectAnswer : (question, answer) => quizActions.selectAnswer(dispatch, question, answer),
+
+
+})
+
+export default connect(stateToPropsMapper, dispatchPropsMapper)(TrueFalseQuestion)

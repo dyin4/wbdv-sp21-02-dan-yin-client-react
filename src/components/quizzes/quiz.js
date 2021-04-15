@@ -2,17 +2,21 @@ import React, {useState, useEffect} from 'react'
 import {useParams, useLocation} from 'react-router-dom'
 import Question from "./questions/question";
 import {connect} from "react-redux";
-import quizActions from "../actions/quiz-actions";
 import quizService from "../../services/quiz-service"
+import quizActions from "../actions/quiz-actions";
 
-const Quiz = ({
+const Quiz = ({questions = [],
+  findQuestionsForQuiz,
+  submitQuiz,
+    score = 0
+
 
 }) => {
   const {quizId} = useParams()
-  const [questions, setQuestions] = useState([])
+  //const [questions, setQuestions] = useState([])
   let location  = useLocation()
   useEffect(() => {
-    quizService.findQuizById(quizId).then((q) => setQuestions(q))
+    findQuestionsForQuiz(quizId)
   },[quizId])
   console.log("questions", questions)
 
@@ -26,9 +30,26 @@ const Quiz = ({
             </li>
         )}
         </ul>
+        <button className="btn btn-primary" onClick={() => {
+          submitQuiz(quizId,questions)
+        }}>Submit</button>
+        <h1>{score}</h1>
       </div>
 
   )
 }
 
-export default Quiz
+const stateToPropsMapper = (state) => {
+  return {
+    questions: state.quizReducer.questions,
+    score:state.quizReducer.score
+  }
+}
+
+const dispatchPropsMapper = (dispatch) => ({
+  findQuestionsForQuiz: (qid) => quizActions.findQuestionsForQuiz(dispatch, qid),
+  submitQuiz: (qid, questions) => quizActions.submitQuiz(dispatch, qid, questions),
+
+})
+
+export default connect(stateToPropsMapper, dispatchPropsMapper)(Quiz)
