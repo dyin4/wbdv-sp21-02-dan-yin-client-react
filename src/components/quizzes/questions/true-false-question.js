@@ -3,13 +3,10 @@ import quizActions from "../../actions/quiz-actions";
 import {connect} from "react-redux";
 
 const choices = ["true", "false"]
-const TrueFalseQuestion = ({q, selectAnswer}) => {
+const TrueFalseQuestion = ({q, selectAnswer, graded}) => {
   const [yourAnswer, setAnswer] = useState("")
-  const [graded, setGraded] = useState(false)
   const handleClick = () => {
-    setGraded(true)
   }
-  console.log("graded", graded)
   return (
       <div className="container">
         <h4>{q.question}{" "}
@@ -24,7 +21,10 @@ const TrueFalseQuestion = ({q, selectAnswer}) => {
               return(
                   <li className={`list-group-item ${ !graded? "" : (choice === q.correct ? 'list-group-item-success' : (yourAnswer === choice ? 'list-group-item-danger' : ""))} `}>
                     <label>
-                      <input type = "radio" name = {q._id} onClick={() => selectAnswer(q.question, choice)} disabled={graded}/> {choice}</label>
+                      <input type = "radio" name = {q._id} onClick={() => {
+                        selectAnswer(q.question, choice)
+                        setAnswer(choice)
+                      }} disabled={graded}/> {choice}</label>
                     {graded && q.correct === choice && <i className="fa fa-check float-right"></i>}
                     {graded && q.correct !== yourAnswer && q.correct !== choice && choice === yourAnswer  && <i className="fa fa-times float-right"></i>}
                   </li>
@@ -33,7 +33,7 @@ const TrueFalseQuestion = ({q, selectAnswer}) => {
           }
         </ul>
         <p>Your answer is : {yourAnswer}</p>
-        <button className="btn btn-success" onClick={handleClick}>Grade</button>
+        {/*<button className="btn btn-success" onClick={handleClick}>Grade</button>*/}
       </div>
 
 
@@ -41,6 +41,9 @@ const TrueFalseQuestion = ({q, selectAnswer}) => {
 }
 
 const stateToPropsMapper = (state) => {
+  return {
+    graded:state.quizReducer.grade
+  }
 }
 
 

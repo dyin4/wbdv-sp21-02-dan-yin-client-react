@@ -11,8 +11,8 @@ function App() {
         <div className="container-fluid">
           <Route path="/" exact={true} component={Home}/>
           <Route path="/courses" component={CourseManager}/>
-          <Route path="/courses/:courseId/quizzes" exact={true} component={QuizzesList}/>
-          <Route path="/courses/:courseId/quizzes/:quizId" exact={true} component={Quiz}/>
+          <Route path="/courses/:courseId/quizzes" exact={true} render={(props) => <QuizzesList {...props}/>}/>
+          <Route path="/courses/:courseId/quizzes/:quizId" exact={true} render={(props) => <Quiz{...props}/>}/>
           {/*<Route path="/editor" component={CourseEditor}/>*/}
           {/*<div className="container-fluid">*/}
           {/*  <CourseManager/>*/}

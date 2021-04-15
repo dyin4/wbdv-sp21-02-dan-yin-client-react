@@ -1,6 +1,7 @@
 const initialState = {
   questions:[],
-  score:""
+  score:"",
+  grade:false,
 }
 
 const quizReducer = (state = initialState, action)=> {
@@ -30,6 +31,14 @@ const quizReducer = (state = initialState, action)=> {
     case "GET_SCORE":
       return {...state,
       score: action.payload.score}
+
+    case "GRADE":
+      return {...state,
+        grade: true}
+
+    case "CLEAR_GRADE":
+      return {...state,
+        grade: false}
 
     default:
       return state

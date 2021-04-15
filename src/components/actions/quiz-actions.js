@@ -21,6 +21,18 @@ export const selectAnswer = (dispatch, question, answer) => {
   })
 }
 
+export const grade = (dispatch) => {
+  dispatch({
+    type: "GRADE",
+  })
+}
+
+export const clearGrade = (dispatch) => {
+  dispatch({
+    type: "CLEAR_GRADE",
+  })
+}
+
 export const submitQuiz = (dispatch, quizId, questions) => {
   let respond = quizService.submitQuiz(quizId, questions)
 respond.then(status =>
@@ -36,7 +48,7 @@ respond.then(status =>
 
 
 const quizActions = {
-  findQuestionsForQuiz, submitQuiz, selectAnswer
+  findQuestionsForQuiz, submitQuiz, selectAnswer,grade, clearGrade
 
 }
 export default quizActions

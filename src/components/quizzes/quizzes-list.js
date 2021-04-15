@@ -3,7 +3,7 @@ import {Link, useParams} from "react-router-dom";
 import quizService from "../../services/quiz-service"
 
 
-const QuizzesList = () => {
+const QuizzesList = ({history}) => {
   const [quizzes, setQuizzes] = useState([])
   const {courseId} = useParams()
 
@@ -14,7 +14,10 @@ const QuizzesList = () => {
   console.log("quizzes", quizzes)
   return(
       <div>
+        <i onClick={() => history.goBack()}
+           className="fas fa-times fa-2x float-right"></i>
         <h2>Quizzes</h2>
+
         <ul className="list-group">{
           quizzes.map(q =>
           <li className="list-group-item">
