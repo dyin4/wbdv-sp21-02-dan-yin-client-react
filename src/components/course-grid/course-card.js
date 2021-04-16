@@ -47,7 +47,9 @@ const CourseCard = ({course, deleteCourse, updateCourse}) => {
               ></input>
               </>
             }
+            <Link to={`/courses/${course._id}/quizzes`}>Quizzes</Link>
             <p className="card-text">Some Description</p>
+
 
 
             <Link
