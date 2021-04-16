@@ -2,6 +2,7 @@ const initialState = {
   questions:[],
   score:"",
   grade:false,
+  attempts:[]
 }
 
 const quizReducer = (state = initialState, action)=> {
@@ -11,6 +12,12 @@ const quizReducer = (state = initialState, action)=> {
       return {
         ...state,
         questions:action.payload.questions
+      }
+
+    case "FIND_ATTEMPTS":
+      return {
+        ...state,
+        attempts:action.payload.attempts
       }
     case "SELECT_ANSWER":
       const newQuestions = state.questions.map(question => {

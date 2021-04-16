@@ -46,9 +46,22 @@ respond.then(status =>
 
 }
 
+export const findAttemptsForQuiz = (dispatch, quizId) => {
+  let respond = quizService.findAttemptsForQuiz(quizId)
+  respond.then(status =>
+
+      dispatch({
+        type: "FIND_ATTEMPTS",
+        payload: {
+          attempts: status
+        }
+      }))
+
+}
+
 
 const quizActions = {
-  findQuestionsForQuiz, submitQuiz, selectAnswer,grade, clearGrade
+  findQuestionsForQuiz, submitQuiz, selectAnswer,grade, clearGrade, findAttemptsForQuiz
 
 }
 export default quizActions

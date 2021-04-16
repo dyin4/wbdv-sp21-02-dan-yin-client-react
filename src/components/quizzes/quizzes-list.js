@@ -27,6 +27,11 @@ const QuizzesList = ({history}) => {
               {q.title}
               <button className="btn btn-primary float-right">start</button>
             </Link>
+            <Link to={{
+              pathname: `/courses/${courseId}/quizzes/${q._id}/attempts`,
+              quizTitle:q.title}}>
+            <button className="btn btn-primary">Attempts</button>
+            </Link>
           </li>)
 
         }</ul>
