@@ -41,7 +41,7 @@ const Quiz = ({history, questions = [],
           submitQuiz(quizId,questions)
           grade()
         }}>Submit</button>
-        {graded && <h1>Your score is : {score}</h1>}
+        {graded && <h1>Your score is : {Math.round(score*100)/100}</h1>}
       </div>
 
   )

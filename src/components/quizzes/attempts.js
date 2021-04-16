@@ -31,7 +31,7 @@ const Attempt = ({history,
                 <span>Attempt {index + 1}   </span>
                   </div>
                   <div className="col-sm-6">
-                <span>Score: {q.score}</span>
+                <span>Score: {Math.round(q.score*100)/100}</span>
                   </div>
                 </div>
               </li>
