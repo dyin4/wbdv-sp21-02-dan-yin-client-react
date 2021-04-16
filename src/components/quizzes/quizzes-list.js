@@ -30,7 +30,7 @@ const QuizzesList = ({history}) => {
             <Link to={{
               pathname: `/courses/${courseId}/quizzes/${q._id}/attempts`,
               quizTitle:q.title}}>
-            <button className="btn btn-primary">Attempts</button>
+            <button className="btn btn-primary attempts-btn">Attempts</button>
             </Link>
           </li>)
 
